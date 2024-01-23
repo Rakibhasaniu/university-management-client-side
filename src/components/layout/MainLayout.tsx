@@ -1,40 +1,41 @@
-import { Layout, Menu, MenuProps } from 'antd';
+import { Layout, Menu } from 'antd';
 
-import { NavLink, Outlet } from 'react-router-dom';
+import {Outlet } from 'react-router-dom';
+import { adminSidebarItems } from '../../routes/admin.route';
 
 
 
 const { Header, Content, Footer, Sider } = Layout;
 
-const items : MenuProps['items'] = [
-  {
-    key:'Dashboard',
-    label: <NavLink to="/admin/dashboard">Dashboard</NavLink> 
-  },
-  {
-    key:'2',
-    label:'Profile',
-  },
-  {
-    key:'3',
-    label:'User Management',
-    children:[
-      {
-        key:'Create Admin',
-        label: <NavLink to="/admin/create-admin">Create Admin</NavLink> 
-      },
-      {
-        key:'Create Faculty',
-        label: <NavLink to="/admin/create-faculty">Create Faculty</NavLink> 
-      },
-      {
-        key:'Create Student',
-        label: <NavLink to="/admin/create-student">Create Student</NavLink> 
-      },
+// const items : MenuProps['items'] = [
+//   {
+//     key:'Dashboard',
+//     label: <NavLink to="/admin/dashboard">Dashboard</NavLink> 
+//   },
+//   {
+//     key:'2',
+//     label:'Profile',
+//   },
+//   {
+//     key:'3',
+//     label:'User Management',
+//     children:[
+//       {
+//         key:'Create Admin',
+//         label: <NavLink to="/admin/create-admin">Create Admin</NavLink> 
+//       },
+//       {
+//         key:'Create Faculty',
+//         label: <NavLink to="/admin/create-faculty">Create Faculty</NavLink> 
+//       },
+//       {
+//         key:'Create Student',
+//         label: <NavLink to="/admin/create-student">Create Student</NavLink> 
+//       },
       
-    ]
-  }
-]
+//     ]
+//   }
+// ]
 
 const MainLayout = () => {
     return (
@@ -52,7 +53,7 @@ const MainLayout = () => {
         <div style={{color:'white', textAlign:'center', height:"4rem", display:'flex',justifyContent:'center',alignItems:'center'}}>
           <h1>University</h1>
         </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={items} />
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={adminSidebarItems}/>
       </Sider>
       <Layout>
         <Header style={{ padding: 0, }} />
