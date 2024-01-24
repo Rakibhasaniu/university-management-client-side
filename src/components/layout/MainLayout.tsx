@@ -1,11 +1,13 @@
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 
 import {Outlet } from 'react-router-dom';
-import { adminSidebarItems } from '../../routes/admin.route';
+
+import SideBar from './SideBar';
 
 
 
-const { Header, Content, Footer, Sider } = Layout;
+
+const { Header, Content, Footer } = Layout;
 
 // const items : MenuProps['items'] = [
 //   {
@@ -40,21 +42,7 @@ const { Header, Content, Footer, Sider } = Layout;
 const MainLayout = () => {
     return (
       <Layout style={{height: "100vh"}}>
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={(broken) => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div style={{color:'white', textAlign:'center', height:"4rem", display:'flex',justifyContent:'center',alignItems:'center'}}>
-          <h1>University</h1>
-        </div>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['4']} items={adminSidebarItems}/>
-      </Sider>
+        <SideBar />
       <Layout>
         <Header style={{ padding: 0, }} />
         <Content style={{ margin: '24px 16px 0' }}>
@@ -62,7 +50,6 @@ const MainLayout = () => {
             style={{
               padding: 24,
               minHeight: 360,
-              
             }}
           >
             <Outlet></Outlet>

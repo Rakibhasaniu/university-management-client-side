@@ -9,7 +9,7 @@ export const facultyPaths = [
         element: <FacultyDashboard />
     },
     {
-        nae:'Offered Course',
+        name:'Offered Course',
         path:'offered-course',
         element:<OfferedCourse />
     },
