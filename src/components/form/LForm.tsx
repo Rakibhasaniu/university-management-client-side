@@ -1,9 +1,13 @@
-import { FormProvider, useForm } from "react-hook-form";
+import { ReactNode } from "react";
+import { FieldValues, FormProvider, SubmitHandler, useForm } from "react-hook-form";
 
+type LFormProps = {
+    onSubmit: SubmitHandler<FieldValues>;
+    children: ReactNode
+}
 
-
-const LForm = ({onSubmit, children}) => {
-    const methods = useForm();
+const LForm = ({onSubmit, children, defaultValues}:LFormProps) => {
+    const methods = useForm({defaultValues});
     return (
         <FormProvider {...methods}>
             <form onSubmit={methods.handleSubmit(onSubmit)}>
