@@ -3,7 +3,8 @@ import { FieldValues, FormProvider, SubmitHandler, useForm } from "react-hook-fo
 
 type LFormProps = {
     onSubmit: SubmitHandler<FieldValues>;
-    children: ReactNode
+    children: ReactNode;
+    defaultValues: Record<string,any>
 }
 
 const LForm = ({onSubmit, children, defaultValues}:LFormProps) => {
