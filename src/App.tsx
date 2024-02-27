@@ -1,5 +1,4 @@
-import MainLayout from "./components/layout/MainLayout"
-import ProtectedRoute from "./components/layout/ProtectedRoute"
+import { Button } from "./components/ui/button"
 
 
 function App() {
@@ -7,9 +6,10 @@ function App() {
 
   return (
     <>
-    <ProtectedRoute>
-      <MainLayout />
-    </ProtectedRoute>
+     <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
+    <Button>Click me</Button>
     </>
   )
 }

@@ -1,6 +1,5 @@
-
-import { NavLink } from 'react-router-dom';
 import { TSidebarItem, TUserPath } from '../types';
+import { NavLink } from 'react-router-dom';
 
 export const sidebarItemsGenerator = (items: TUserPath[], role) => {
   const sidebarItems = items.reduce((acc: TSidebarItem[], item) => {
