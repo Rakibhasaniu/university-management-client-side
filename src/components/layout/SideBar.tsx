@@ -1,19 +1,23 @@
-import { adminSidebarItems } from "@/routes/admin.route";
+import { adminPaths } from "@/routes/admin.route";
+import { facultyPaths } from "@/routes/faculty.route";
+import { studentPaths } from "@/routes/student.route";
+import { sidebarItemsGenerator } from "@/utils/sidebar.generator";
 import { Menu } from "antd";
 import {  Layout } from 'antd';
 
 const { Sider } = Layout;
 
-// const userRole = {
-//   ADMIN: 'admin',
-//   FACULTY: 'faculty',
-//   STUDENT: 'student',
-// };
+const userRole = {
+  ADMIN: 'admin',
+  FACULTY: 'faculty',
+  STUDENT: 'student',
+};
 
 const Sidebar = () => {
+  const role = 'admin'
   // const user = useAppSelector(selectCurrentUser);
 
-  // let sidebarItems;
+  let sidebarItems;
 //   const sidebarItems: MenuProps['items'] = [
 //     {
 //     key:'Dashboard',
@@ -43,20 +47,20 @@ const Sidebar = () => {
 //     },
 // ]
 
-  // switch (user!.role) {
-  //   case userRole.ADMIN:
-  //     sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
-  //     break;
-  //   case userRole.FACULTY:
-  //     sidebarItems = sidebarItemsGenerator(facultyPaths, userRole.FACULTY);
-  //     break;
-  //   case userRole.STUDENT:
-  //     // sidebarItems = sidebarItemsGenerator(studentPaths, userRole.STUDENT);
-  //     break;
+  switch (role) {
+    case userRole.ADMIN:
+      sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
+      break;
+    case userRole.FACULTY:
+      sidebarItems = sidebarItemsGenerator(facultyPaths, userRole.FACULTY);
+      break;
+    case userRole.STUDENT:
+      sidebarItems = sidebarItemsGenerator(studentPaths, userRole.STUDENT);
+      break;
 
-  //   default:
-  //     break;
-  // }
+    default:
+      break;
+  }
 
   return (
     <Sider
@@ -79,7 +83,7 @@ const Sidebar = () => {
         theme="dark"
         mode="inline"
         defaultSelectedKeys={['4']}
-        items={adminSidebarItems}
+        items={sidebarItems}
       />
     </Sider>
   );
