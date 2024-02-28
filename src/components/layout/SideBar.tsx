@@ -1,38 +1,62 @@
-import { Layout, Menu } from 'antd';
-import { sidebarItemsGenerator } from '../../utils/sidebarItemsGenerator';
-import { adminPaths } from '../../routes/admin.routes';
-import { facultyPaths } from '../../routes/faculty.routes';
-import { studentPaths } from '../../routes/student.routes';
-import { useAppSelector } from '../../redux/hooks';
-import { selectCurrentUser } from '../../redux/features/auth/authSlice';
+import { Layout, Menu, MenuProps } from 'antd';
+import { NavLink } from 'react-router-dom';
+
 
 const { Sider } = Layout;
 
-const userRole = {
-  ADMIN: 'admin',
-  FACULTY: 'faculty',
-  STUDENT: 'student',
-};
+// const userRole = {
+//   ADMIN: 'admin',
+//   FACULTY: 'faculty',
+//   STUDENT: 'student',
+// };
 
 const Sidebar = () => {
-  const user = useAppSelector(selectCurrentUser);
+  // const user = useAppSelector(selectCurrentUser);
 
-  let sidebarItems;
+  // let sidebarItems;
+  const sidebarItems: MenuProps['items'] = [
+    {
+    key:'Dashboard',
+    label:<NavLink to="/admin/dashboard"> Dashboard</NavLink>,
+    },
+    {
+    key:'User Management',
+    label:'User Management',
+    children:[
+      {
+        key:'Create Student',
+        label: <NavLink to='/admin/create-student'> Create Student </NavLink>
+      },
+      {
+        key:'Create Admin',
+        label: <NavLink to='/admin/create-admin'> Create Admin </NavLink>
+      },
+      {
+        key:'Create Faculty',
+        label: <NavLink to='/admin/create-faculty'> Create Faculty </NavLink>
+      },
+    ]
+    },
+    {
+    key:'faculty',
+    label:'Faculty',
+    },
+]
 
-  switch (user!.role) {
-    case userRole.ADMIN:
-      sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
-      break;
-    case userRole.FACULTY:
-      sidebarItems = sidebarItemsGenerator(facultyPaths, userRole.FACULTY);
-      break;
-    case userRole.STUDENT:
-      sidebarItems = sidebarItemsGenerator(studentPaths, userRole.STUDENT);
-      break;
+  // switch (user!.role) {
+  //   case userRole.ADMIN:
+  //     sidebarItems = sidebarItemsGenerator(adminPaths, userRole.ADMIN);
+  //     break;
+  //   case userRole.FACULTY:
+  //     sidebarItems = sidebarItemsGenerator(facultyPaths, userRole.FACULTY);
+  //     break;
+  //   case userRole.STUDENT:
+  //     // sidebarItems = sidebarItemsGenerator(studentPaths, userRole.STUDENT);
+  //     break;
 
-    default:
-      break;
-  }
+  //   default:
+  //     break;
+  // }
 
   return (
     <Sider
@@ -49,7 +73,7 @@ const Sidebar = () => {
           alignItems: 'center',
         }}
       >
-        <h1>PH Uni</h1>
+        <h1>PH University</h1>
       </div>
       <Menu
         theme="dark"
