@@ -1,6 +1,6 @@
-import { Layout, Menu, MenuProps } from 'antd';
-import { NavLink } from 'react-router-dom';
-
+import { adminSidebarItems } from "@/routes/admin.route";
+import { Menu } from "antd";
+import {  Layout } from 'antd';
 
 const { Sider } = Layout;
 
@@ -14,34 +14,34 @@ const Sidebar = () => {
   // const user = useAppSelector(selectCurrentUser);
 
   // let sidebarItems;
-  const sidebarItems: MenuProps['items'] = [
-    {
-    key:'Dashboard',
-    label:<NavLink to="/admin/dashboard"> Dashboard</NavLink>,
-    },
-    {
-    key:'User Management',
-    label:'User Management',
-    children:[
-      {
-        key:'Create Student',
-        label: <NavLink to='/admin/create-student'> Create Student </NavLink>
-      },
-      {
-        key:'Create Admin',
-        label: <NavLink to='/admin/create-admin'> Create Admin </NavLink>
-      },
-      {
-        key:'Create Faculty',
-        label: <NavLink to='/admin/create-faculty'> Create Faculty </NavLink>
-      },
-    ]
-    },
-    {
-    key:'faculty',
-    label:'Faculty',
-    },
-]
+//   const sidebarItems: MenuProps['items'] = [
+//     {
+//     key:'Dashboard',
+//     label:<NavLink to="/admin/dashboard"> Dashboard</NavLink>,
+//     },
+//     {
+//     key:'User Management',
+//     label:'User Management',
+//     children:[
+//       {
+//         key:'Create Student',
+//         label: <NavLink to='/admin/create-student'> Create Student </NavLink>
+//       },
+//       {
+//         key:'Create Admin',
+//         label: <NavLink to='/admin/create-admin'> Create Admin </NavLink>
+//       },
+//       {
+//         key:'Create Faculty',
+//         label: <NavLink to='/admin/create-faculty'> Create Faculty </NavLink>
+//       },
+//     ]
+//     },
+//     {
+//     key:'faculty',
+//     label:'Faculty',
+//     },
+// ]
 
   // switch (user!.role) {
   //   case userRole.ADMIN:
@@ -79,7 +79,7 @@ const Sidebar = () => {
         theme="dark"
         mode="inline"
         defaultSelectedKeys={['4']}
-        items={sidebarItems}
+        items={adminSidebarItems}
       />
     </Sider>
   );
