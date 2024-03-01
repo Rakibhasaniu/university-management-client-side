@@ -4,15 +4,15 @@
 //     { value: '03', label: 'Fall' },
 //   ];
 
-import { CurrentUser } from "@/redux/features/auth/authSlice";
+import {  CurrentUserToken } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/features/hooks";
 import { ReactNode } from "react";
 import { Navigate } from "react-router-dom";
 
   
 
-const protectedRoute = ({children}:{children: ReactNode}) => {
-  const token = useAppSelector(CurrentUser);
+const ProtectedRoute = ({children}:{children: ReactNode}) => {
+  const token = useAppSelector(CurrentUserToken);
   if(!token){
     return <Navigate to="/login" replace={true} />;
   }
@@ -20,4 +20,4 @@ const protectedRoute = ({children}:{children: ReactNode}) => {
 
 };
 
-export default protectedRoute;
+export default ProtectedRoute;
